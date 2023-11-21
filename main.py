@@ -1,6 +1,7 @@
 import sys 
 import pygame
 import numpy as np
+import cv2 as cv
 from PIL import Image 
 from helper import cost 
 from helper import generate_shapes
@@ -23,6 +24,7 @@ class Main:
         self.prev_cost = self._init_prev_cost() # Initial cost 
 
     def _init_prev_cost(self): 
+        self.screen.fill('white')   
         for shape in self.shapes: 
                 if self.shape_type == "line": 
                     pygame.draw.line(self.screen, shape[2], shape[0],  shape[1], 3)
@@ -67,6 +69,22 @@ if __name__ == "__main__":
     with Image.open(img_path) as im: 
         im.thumbnail((WIDTH, HEIGHT), Image.LANCZOS)
         im.show()
-    true_y = np.array(im) # True image 
-    main = Main(true_y, shape_type)
+
+    # Image Preprocessing
+    opencvImage = cv.cvtColor(np.array(im), cv.COLOR_RGB2BGR) 
+    opencvImage = cv.cvtColor(opencvImage, cv.COLOR_BGR2GRAY)
+    edges = cv.Canny(opencvImage, 100, 200)
+    kernel = np.ones((5,5), np.uint8)
+    # edges = cv.erode(edges, kernel, iterations=1)
+    edges = cv.dilate(edges, kernel, iterations=1)
+    edges = cv.bitwise_not(edges)
+    edges = cv.merge((edges, edges, edges))
+    cv.imshow('edge', edges)
+    cv.waitKey(0)    
+
+    main = Main(edges, shape_type)
     main.run() 
+
+# Next step 
+# 1) Test on edges of image 
+# 2) Improve hill-descent 
