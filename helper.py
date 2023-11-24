@@ -3,11 +3,13 @@ import pygame
 import math 
 import copy
 
-def neighbors(shapes, shape_type, color): 
+def neighbors(border_box, shapes, shape_type, color): 
     """Obtain current state space neighbors
 
     Parameters
     ----------
+    border_box: tuple 
+        (width, height) of screen to bound the shapes within 
     shapes: list 
         list of parameters for required shape 
     shape: str 
@@ -29,11 +31,18 @@ def neighbors(shapes, shape_type, color):
         # ([x1, y1], [x2, y2], pygame.Color)
         for i in ind:
             vertex = np.random.randint(0, 2)
-            angle = np.random.randint(-90, 90)
             color_channel = np.random.randint(0, 3)
-            shapes[i][vertex][0] = shapes[i][int(not vertex)][0] + math.cos(math.radians(angle)) * 100 # 100 is default len
-            shapes[i][vertex][1] = shapes[i][int(not vertex)][1] + math.sin(math.radians(angle)) * 100
-            if color: 
+            angle = np.random.randint(0, 360)
+            x = shapes[i][int(not vertex)][0] + math.cos(math.radians(angle)) * 100 
+            y = shapes[i][int(not vertex)][1] + math.sin(math.radians(angle)) * 100
+            # Keep generating if outside of border_box
+            while not inBorder(border_box, (x, y)): 
+                angle = np.random.randint(0, 360)
+                x = shapes[i][int(not vertex)][0] + math.cos(math.radians(angle)) * 100 
+                y = shapes[i][int(not vertex)][1] + math.sin(math.radians(angle)) * 100
+            shapes[i][vertex][0] = x
+            shapes[i][vertex][1] = y
+            if color:     
                 if color_channel == 0:
                     shapes[i][2].r = np.random.randint(0, 256)
                 elif color_channel == 1:
@@ -41,6 +50,22 @@ def neighbors(shapes, shape_type, color):
                 else:
                     shapes[i][2].b = np.random.randint(0, 256)
     return shapes 
+
+def inBorder(border_box, pos): 
+    """Return true if pos is within border_box
+
+    Parameters 
+    ---------- 
+    border_box: tuple 
+        (width, height) of screen to bound the shapes within 
+    pos: tuple
+        (x, y)
+
+    Returns
+    -------
+    Whether the position remains in the given border_box 
+    """
+    return (0 <= pos[0] and pos[0] <= border_box[0]) and (0 <= pos[1] and pos[1] <= border_box[1])
 
 def cost(screen, y): 
     """Return the scalar cost between prediction (yhat) and true image (y)
@@ -83,6 +108,11 @@ def generate_shapes(border_box, shape_type="line", count=100, color=False):
             angle = np.random.randint(0, 360)
             x2 = x1 + math.cos(math.radians(angle)) * line_length
             y2 = y1 + math.sin(math.radians(angle)) * line_length
+            # Keep generating if outside of border_box
+            while not inBorder(border_box, (x2, y2)): 
+                angle = np.random.randint(0, 360)
+                x2 = x1 + math.cos(math.radians(angle)) * line_length
+                y2 = y1 + math.sin(math.radians(angle)) * line_length
             if color: 
                 r, g, b = np.random.randint(0, 256), np.random.randint(0, 256), np.random.randint(0, 256)
                 shapes.append(([x1, y1], [x2, y2], pygame.Color(r, g, b)))
@@ -92,6 +122,3 @@ def generate_shapes(border_box, shape_type="line", count=100, color=False):
 
 
     return shapes  
-
-def hill_climb(): 
-    pass
