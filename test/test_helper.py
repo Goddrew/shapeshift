@@ -27,5 +27,26 @@ class TestHelper(unittest.TestCase):
         y = np.ones((500, 500, 3))
         self.assertEqual(helper.cost(screen, y), 1)
 
+    def test_generate_shapes(self): 
+        """Test if correctly generating shapes to draw"""
+        borderBox = (500, 500)
+        shapes = helper.generate_shapes(borderBox, shape_type="line", count=100, color=False)
+        self.assertEqual(len(shapes), 100)
+        for s in shapes: 
+            # Check if each vertex of the line is within borderBox
+            self.assertEqual(helper.inBorder(borderBox, s[0]), True)
+            self.assertEqual(helper.inBorder(borderBox, s[1]), True)
+
+    def test_neighbors(self): 
+        """Test if generating neighbors state correctly"""
+        borderBox = (500, 500)
+        shapes = helper.generate_shapes(borderBox, shape_type="line", count=100, color=False)
+        neighbors = helper.neighbors(borderBox, shapes, shape_type="line", color=False)
+        self.assertEqual(len(shapes), len(neighbors))
+        self.assertNotEqual(shapes, neighbors)
+        for s in neighbors: 
+            self.assertEqual(helper.inBorder(borderBox, s[0]), True)
+            self.assertEqual(helper.inBorder(borderBox, s[1]), True)
+            
 if __name__ == "__main__": 
     unittest.main()
