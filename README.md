@@ -2,6 +2,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
+![bird](https://github.com/Goddrew/shapeshift/blob/main/images/bird.jpg)
 ![bird_hill_descent](https://github.com/Goddrew/shapeshift/blob/main/demo/hill_bird.gif)
 
 ### Built With 
