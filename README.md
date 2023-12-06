@@ -2,11 +2,12 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
-
+This project explores two algorithmns, hill descent and simulated annealing, that estimate input images based on shapes. 
 
 True Image             |  Estimated Image
 :-------------------------:|:-------------------------:
 <img src="https://github.com/Goddrew/shapeshift/blob/main/images/bird.jpg" alt="bird" width="350"/>  |  <img src="https://github.com/Goddrew/shapeshift/blob/main/demo/hill_bird.gif" alt="bird_hill_descent" width="350"/>
+<img src="https://github.com/Goddrew/shapeshift/blob/main/images/feelsgoodman.jpg" alt="pepe" width="350"/> | <img src="https://github.com/Goddrew/shapeshift/blob/main/demo/hill_pepe.gif" alt="pepe_hill_descent" width="350" />
 
 ### Built With 
 
