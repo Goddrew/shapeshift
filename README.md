@@ -3,9 +3,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
 
-<img src="https://github.com/Goddrew/shapeshift/blob/main/images/bird.jpg" alt="bird" width="500"/>
 
-![bird_hill_descent](https://github.com/Goddrew/shapeshift/blob/main/demo/hill_bird.gif)
+True Image             |  Estimated Image
+:-------------------------:|:-------------------------:
+<img src="https://github.com/Goddrew/shapeshift/blob/main/images/bird.jpg" alt="bird" width="350"/>  |  <img src="https://github.com/Goddrew/shapeshift/blob/main/demo/hill_bird.gif" alt="bird_hill_descent" width="350"/>
 
 ### Built With 
 
