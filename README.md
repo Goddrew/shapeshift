@@ -4,7 +4,7 @@
 ## About The Project 
 ![bird](https://github.com/Goddrew/shapeshift/blob/main/images/bird.jpg)
 
-<img src="https://github.com/Goddrew/shapeshift/blob/main/images/bird.jpg", alt="bird", width="300"/>
+<img src="https://github.com/Goddrew/shapeshift/blob/main/images/bird.jpg" alt="bird" width="300"/>
 
 ![bird_hill_descent](https://github.com/Goddrew/shapeshift/blob/main/demo/hill_bird.gif)
 
