@@ -2,6 +2,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
+![bird_hill_descent](https://github.com/Goddrew/shapeshift/blob/main/demo/hill_bird.gif)
 
 ### Built With 
 
@@ -29,3 +30,4 @@
 [numpy-icon]: https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white
 [cv-url]: https://docs.opencv.org/3.4/d6/d00/tutorial_py_root.html
 [cv-icon]: https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white
+
