@@ -40,7 +40,9 @@ True Image             |  Estimated Image
     python main.py .\images\bird.jpg line 0
     ```
     image-path: Path of the image 
+
     shape-type: circle | line 
+    
     algo-type: hill climbing (0) | simulated annealing (1)
 2. **User input** 
     Answer the provided user input for the size of the shape and number of shapes  
