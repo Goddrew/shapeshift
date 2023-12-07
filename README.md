@@ -42,7 +42,7 @@ True Image             |  Estimated Image
     image-path: Path of the image 
 
     shape-type: circle | line 
-    
+
     algo-type: hill climbing (0) | simulated annealing (1)
 2. **User input** 
     Answer the provided user input for the size of the shape and number of shapes  
@@ -54,7 +54,7 @@ When dealing with images featuring intricate backgrounds and multiple subjects, 
 
 <!-- FUTURE -->
 ## Future 
-This project can be extended in many directions. One potential direction invovles exploring image estimation in 3D space as an alternative method to the current one. Another potential direction invovles imporoving the image estimation accuracy by incorporating a broader range of shapes and classes of hill climbing algorithm. 
+This project can be extended in many directions. One potential direction invovles exploring image estimation in 3D space as an alternative method to the current one. Another potential direction invovles improving the image estimation accuracy by incorporating a broader range of shapes and classes of hill climbing algorithm. 
 
 [pillow-url]: https://pillow.readthedocs.io/en/stable/
 [pillow-icon]: https://img.shields.io/badge/Pillow-pink
