@@ -54,7 +54,7 @@ When dealing with images featuring intricate backgrounds and multiple subjects, 
 
 <!-- FUTURE -->
 ## Future 
-This project can be extended in many directions. One potential direction invovles exploring image estimation in 3D space as an alternative method to the current one. Another potential direction invovles improving the image estimation accuracy by incorporating a broader range of shapes and classes of hill climbing algorithm. 
+This project can be extended in many directions. One potential direction involves exploring image estimation in 3D space as an alternative method to the current one. Another potential direction involves improving the image estimation accuracy by incorporating a broader range of shapes and classes of hill climbing algorithm. 
 
 [pillow-url]: https://pillow.readthedocs.io/en/stable/
 [pillow-icon]: https://img.shields.io/badge/Pillow-pink
